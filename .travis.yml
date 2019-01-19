@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t fpintog/docker-react -f Dockerfile.dev .  
+  
+script:
+  - docker run fpintog/docker-react npm run test -- --coverage
+  
